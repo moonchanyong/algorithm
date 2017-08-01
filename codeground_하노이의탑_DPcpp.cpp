@@ -1,3 +1,5 @@
+// codeground_하노이의탑_DP
+
 /*
 You should use the statndard input/output
 
@@ -9,10 +11,30 @@ Please be very careful.
 */
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int Answer;
+int n;
+
+void dp(int n, int a , int b , int c) 
+{
+
+	if (n == 1 )
+	{
+		
+		printf("%d -> %d\n",a,b);
+
+		return;
+	}
+	dp(n - 1, a, c, b);
+	dp(1, a, b, c);
+	dp(n-1,c,b,a);
+	
+
+}
+
 
 int main(int argc, char** argv)
 {
@@ -35,15 +57,22 @@ int main(int argc, char** argv)
 
 		Answer = 0;
 		/////////////////////////////////////////////////////////////////////////////////////////////
-		/*
-		Implement your algorithm here.
-		The answer to the case will be stored in variable Answer.
-		*/
+
+		cin >> n; // 접시 개수 
+		
+		cout << "Case #" << test_case + 1 << endl;
+
+
+		dp(n,1,3,2);
+		
+
+			
+			
+
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 
 		// Print the answer to standard output(screen).
-		cout << "Case #" << test_case + 1 << endl;
-		cout << Answer << endl;
 	}
 
 	return 0;//Your program should return 0 on normal termination.
